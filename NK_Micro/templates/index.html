@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Received Data</title>
+</head>
+<body>
+    <h1>Received Data</h1>
+    <p><strong>IST:</strong> {{ ist }}</p>
+    <p><strong>ESP ID:</strong> {{ esp_id }}</p>
+    <p><strong>Temperature:</strong> {{ temperature }}°C</p>
+    <p><strong>Humidity:</strong> {{ humidity }}%</p>
+    <p><strong>Luminosity:</strong> {{ luminosity }}</p>
+    <p><strong>Seed Studio pH:</strong> {{ seed_ph }}</p>
+    <p><strong>DFRobot pH:</strong> {{ df_ph }}</p>
+    <p><strong>Light Status:</strong> {{ light_status }}</p>
+    <p><strong>Fan Status:</strong> {{ fan_status }}</p>
+    <p><strong>Pump Status:</strong> {{ pump_status }}</p>
+    
+    <h2>Heat Matrix</h2>
+    <table border="1">
+        <tr>
+            {% for value in heat_matrix %}
+                <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+    </table>
+</body>
+</html>
