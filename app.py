@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template,send_file
 import csv
 
 app = Flask(__name__)
@@ -50,6 +50,9 @@ def view_data():
     # Update the heat_matrix variable with actual values
     return render_template('index.html', ist='IST Value', esp_id='ESP ID Value', temperature='Temperature Value', humidity='Humidity Value', luminosity='Luminosity Value', seed_ph='Seed Studio pH Value', df_ph='DFRobot pH Value', light_status='Light Status Value', fan_status='Fan Status Value', pump_status='Pump Status Value', heat_matrix=['Value 1', 'Value 2', ..., 'Value 64'])
 
+@app.route('/download-csv')
+def download_csv():
+    return send_file(csv_file_path, as_attachment=True)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
